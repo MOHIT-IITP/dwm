@@ -1,13 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrains Mono:size=9", "JoyPixels:pixelsize=9:antialias=true:autohint=true"};
+static const int topbar             = 0;        /* 0 means bottom bar */
+static const char *fonts[]          = { "JetBrains Mono:size=8", "JoyPixels:pixelsize=8:antialias=true:autohint=true"};
 static const char dmenufont[]       = "JetBrains Mono:size=9";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -22,7 +22,7 @@ static char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -73,10 +73,10 @@ static const char *kittycmd[] = { "kitty", NULL };
 #include "shiftview.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_period,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_comma,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_g,      togglebar,      {0} },
 	{ MODKEY,                       XK_f,	   zoom,           {0} },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
@@ -92,10 +92,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_h,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_l, focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_h,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_l, tagmon,         {.i = +1 } },
 	{ MODKEY,			XK_minus,  setgaps,	   {.i = -1 } },
 	{ MODKEY,			XK_equal,  setgaps,	   {.i = +1 } },
 	{ MODKEY|ShiftMask,		XK_equal,  setgaps,	   {.i =  0 } },
