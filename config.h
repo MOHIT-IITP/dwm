@@ -52,7 +52,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -67,6 +67,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont};
 static const char *termcmd[]  = { "st", NULL };
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
+static const char *kittycmd[] = { "kitty", NULL };
 
 
 #include "shiftview.c"
@@ -87,7 +88,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,  	   togglefloating, {0} },
 	{ MODKEY,                       XK_space,  	   setlayout,      {0} },
 	{ MODKEY,                       XK_p,      spawn,          {.v = roficmd } },
-	{ MODKEY,                 			XK_Return,                   spawn,          {.v = termcmd } },
+	{ MODKEY,                 			XK_Return,                   spawn,          {.v = kittycmd } },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
